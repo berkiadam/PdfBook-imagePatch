@@ -8,7 +8,7 @@ Though the PdfBook is far the best Pdf export tool available for Mediawiki, it h
 
 * Generally, all the images look larger than they are in the wiki page
 * There are images that don't even fit. 
-* There is a third problem, all the images have a approx. 40px indent, so they are not in line with the text. 
+* There is a third problem, all the images have an approx. 40px indent, so they are not in line with the text. 
 
 Here is my fix, that I've been using for a long time:
 
