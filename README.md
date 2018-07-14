@@ -1,5 +1,6 @@
 # PdfBook-imagePatch
-Based on the original MediaWiki PdfBook (by Aran Dunkley). The scaling problem was fixed. 
+
+**Based on the original MediaWiki PdfBook (by Aran Dunkley)**. The image scaling problem was fixed. 
 
 The original extension can be found here: https://www.mediawiki.org/wiki/Extension:PdfBook
 
