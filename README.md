@@ -65,3 +65,172 @@ if ( preg_match_all("/<img[^>]+?width=\"([0-9]+)\"/", $text, $matches)) {
 }
 ```
 
+
+
+# Push display adatok megjelenítése Schema
+
+```
+
+```
+
+| Abstract            | Extensible | Status       | Identifiable | Custom Properties | Additional Properties | Defined In                                         |
+| ------------------- | ---------- | ------------ | ------------ | ----------------- | --------------------- | -------------------------------------------------- |
+| Can be instantiated | No         | Experimental | No           | Forbidden         | Permitted             | [pushDetails.schema.json](pushDetails.schema.json) |
+
+# Push display adatok megjelenítése Properties
+
+| Property                        | Type       | Required     | Nullable | Defined by                                      |
+| ------------------------------- | ---------- | ------------ | -------- | ----------------------------------------------- |
+| [attributes](#attributes)       | `object[]` | **Required** | No       | Push display adatok megjelenítése (this schema) |
+| [creationDate](#creationdate)   | `string`   | **Required** | No       | Push display adatok megjelenítése (this schema) |
+| [functionCode](#functioncode)   | `string`   | **Required** | No       | Push display adatok megjelenítése (this schema) |
+| [templateType](#templatetype)   | `enum`     | **Required** | No       | Push display adatok megjelenítése (this schema) |
+| [transactionId](#transactionid) | `string`   | **Required** | No       | Push display adatok megjelenítése (this schema) |
+| `*`                             | any        | Additional   | Yes      | this schema _allows_ additional properties      |
+
+## attributes
+
+A templét belsejében megjelenő attribútumok listája
+
+`attributes`
+
+- is **required**
+- type: `object[]`
+- defined in this schema
+
+### attributes Type
+
+Array type: `object[]`
+
+All items must be of the type: `object` with following properties:
+
+| Property    | Type   | Required     |
+| ----------- | ------ | ------------ |
+| `labelCode` | string | Optional     |
+| `params`    | object | **Required** |
+| `type`      | string | **Required** |
+
+#### labelCode
+
+Annak a címkének a kódja, amit kiírunk a sor elejére az adott attribútum típus elé
+
+`labelCode`
+
+- is optional
+- type: `string`
+
+##### labelCode Type
+
+`string`
+
+#### params
+
+Az attribútum paraméterei, melyek nevesített mezői a params univerzális objektumnak
+
+`params`
+
+- is **required**
+- type: `object`
+
+##### params Type
+
+`object` with following properties:
+
+| Property | Type | Required |
+| -------- | ---- | -------- |
+
+
+#### type
+
+Az attribútum típusa. Ez határozza meg a megjelenítést
+
+`type`
+
+- is **required**
+- type: `enum`
+
+The value of this property **must** be equal to one of the [known values below](#attributes-known-values).
+
+##### type Known Values
+
+| Value                  | Description |
+| ---------------------- | ----------- |
+| `TEXT`                 |             |
+| `MULTI_LINE_TEXT`      |             |
+| `SORT_DATE`            |             |
+| `DATE_WITH_WEEK_DAY`   |             |
+| `DATE`                 |             |
+| `SHORT_DATE_TIME`      |             |
+| `PIECE`                |             |
+| `SOURCE_ACCOUNT`       |             |
+| `AMOUNT`               |             |
+| `TARGET_GIRO_ACCOUNT`  |             |
+| `TARGET_IBAN_ACCOUNT`  |             |
+| `TARGET_PROXY_ACCOUNT` |             |
+| `CARD`                 |             |
+| `RECURRENCE`           |             |
+| `PROVIDER`             |             |
+
+## creationDate
+
+A tranzakció létrehozásának az időpontja ISO 8601 formátumban.
+
+`creationDate`
+
+- is **required**
+- type: `string`
+- defined in this schema
+
+### creationDate Type
+
+`string`
+
+## functionCode
+
+A funkció kódja annak a folyamatnak amihez az MFA-t kaptuk. Ez fogja a címet meghatározni
+
+`functionCode`
+
+- is **required**
+- type: `string`
+- defined in this schema
+
+### functionCode Type
+
+`string`
+
+## templateType
+
+A templét típusa ami a képernyő struktúráját fogja meghatározni
+
+`templateType`
+
+- is **required**
+- type: `enum`
+- defined in this schema
+
+The value of this property **must** be equal to one of the [known values below](#templatetype-known-values).
+
+### templateType Known Values
+
+| Value      | Description |
+| ---------- | ----------- |
+| `MODIFY`   |             |
+| `TRANSFER` |             |
+| `PURCHASE` |             |
+| `LOGIN`    |             |
+
+## transactionId
+
+Az ID-ja annak a tranzakciónak, amihez a PUSH megerősítést kaptuk
+
+`transactionId`
+
+- is **required**
+- type: `string`
+- defined in this schema
+
+### transactionId Type
+
+`string`
+
